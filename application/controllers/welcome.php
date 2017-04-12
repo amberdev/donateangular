@@ -67,13 +67,23 @@ class Welcome extends CI_Controller {
 
 	function login()
 	{
-
 		$postData = file_get_contents("php://input");
         $postArray=json_decode($postData,true);
 
         $response=$this->usermodel->save_user($postArray);
 
-        echo print_r($response);die;
+        if(!empty($response))
+        {
+        	$_SESSION['user_login']=$response['id'];
+        	$_SESSION['fb_id']=$response['fb_id'];
+        	$_SESSION['f_name']=$response['f_name'];
+        }
+        print_r($_SESSION['curr_details']);die;
+        if(isset($_SESSION['curr_details']))
+        {
+        	$this->usermodel->save_details($_SESSION['curr_details']);
+        	unset($_SESSION['curr_details']);
+        }
 	}
 }
 
