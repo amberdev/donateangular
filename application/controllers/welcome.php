@@ -41,9 +41,18 @@ class Welcome extends CI_Controller {
 	        	 
 	        	if(isset($_SESSION['user_login']))
 	        	{
-	        		$this->usermodel->save_details($data,$_SESSION['user_login']);
-	        		$response['response']['status']='Ok';
-	        		$response['response']['message']='Your details has been saved';
+	        		$insert=$this->usermodel->save_details($data,$_SESSION['user_login']);
+	        		if(isset($insert))
+	        		{
+						$response['response']['status']='Ok';
+						$response['response']['message']='Your details has been saved';	
+	        		}
+	        		else
+	        		{
+						$response['response']['status']='Error';
+						$response['response']['message']='Somthing Went Wrong!! Please try again';
+	        		}
+	        		
 	        	}
 	        	else
 	        	{
