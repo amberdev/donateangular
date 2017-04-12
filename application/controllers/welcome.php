@@ -84,7 +84,7 @@ class Welcome extends CI_Controller {
 
 			if(isset($_SESSION['curr_details']))
 			{
-				$insert=$response=$this->usermodel->save_details($_SESSION['curr_details'],$_SESSION['user_login']);
+				$insert=$this->usermodel->save_details($_SESSION['curr_details'],$_SESSION['user_login']);
 				if(isset($insert))
 				{
 					unset($_SESSION['curr_details']);	
@@ -97,7 +97,10 @@ class Welcome extends CI_Controller {
         {
         	$response['response']['status']='Error';
         	$response['response']['message']='Somthing Went Wrong!! Please try again';
-        }  
+        } 
+
+        echo json_encode($response);
+        exit(); 
 	}
 }
 
