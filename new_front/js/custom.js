@@ -49,10 +49,11 @@ app.controller('user_ctrl',function($scope,$http)
 					FB.init({ appId: '1467060270178993', xfbml: true, cookie: true, oauth: true });
 					FB.login(function(response) 
 					{
+						console.log(response);
 						if (response.authResponse)
 						{
 
-							console.log(response);
+							
 							//alert("REDIRECT FB.LOGIN 1");
 							
 							window.location = "http://donateyourkapda.com/welcome/login";
