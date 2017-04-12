@@ -34,14 +34,14 @@ app.config(function($routeProvider) {
 app.controller('user_ctrl',function($scope,$http)
 {
 	$scope.login=true;
-	show_pic=false;
+	$scope.show_pic=false;
 	$http.get(base_url+'welcome/check_login').then(function(response) {
 
 
 		if(response.data.response.status=='Ok')
 		{
 			$scope.login=false;
-			show_pic=true;
+			$scope.show_pic=true;
 		}
         console.log(response.data.response.status);
 

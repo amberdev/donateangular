@@ -124,7 +124,7 @@ class Welcome extends CI_Controller {
 		}
 		else
 		{
-			$response['response']['status']='Ok';
+			$response['response']['status']='Error';
 			$response['response']['message']='User not logged in!!';
 		}
 		echo json_encode($response);
