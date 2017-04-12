@@ -66,7 +66,7 @@
 
         function save_details($data,$user_id)
         {
-        	$donation=array('user_id'=>$user_id,'donate'=>$data['donate_details']);
+        	$donation=array('user_id'=>$user_id,'donate'=>$data['donate_details'],'created_on'=>date('Y-m-d h:i:s'));
         	unset($data['donate_details']);
         	$this->db->where('id',$user_id);
         	$this->db->update('tbl_users',$data);
