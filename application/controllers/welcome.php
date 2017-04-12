@@ -7,6 +7,7 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
+		$this->load->model('usermodel');
 	}
 	public function index()
 	{
@@ -65,7 +66,7 @@ class Welcome extends CI_Controller {
         $postArray=json_decode($postData,true);
 
         $response=$this->usermodel->save_user($postArray);
-        
+
         echo print_r($postArray);die;
 	}
 }
