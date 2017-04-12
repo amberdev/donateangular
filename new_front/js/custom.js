@@ -33,6 +33,12 @@ app.config(function($routeProvider) {
 
 app.controller('user_ctrl',function($scope,$http)
 {
+	$http.get(base_url+'welcome/check_login').then(function(response) {
+
+        console.log(response);
+
+    });
+
 	$scope.valid_send = function(user) {
 
        	$http.post(base_url+'welcome/save_user_donate_details', {user_detail:user,donate:$scope.donate_details}).then(function(successCallback){ 

@@ -90,6 +90,7 @@ class Welcome extends CI_Controller {
         	$_SESSION['user_login']=$respn[0]['id'];
         	$_SESSION['fb_id']=$respn[0]['fb_id'];
         	$_SESSION['f_name']=$respn[0]['f_name'];
+        	$_SESSION['photo_url']=$respn[0]['photo_url'];
 
 			if(isset($_SESSION['curr_details']))
 			{
@@ -110,6 +111,24 @@ class Welcome extends CI_Controller {
 
         echo json_encode($response);
         exit(); 
+	}
+
+	function check_login()
+	{
+		if(isset($_SESSION['user_login']) && $_SESSION['user_login']!='')
+		{
+			$response['response']['status']='Ok';
+			$response['response']['message']='User Logged in!!';
+			$response['response']['user_name']=$_SESSION['f_name'];
+			$response['response']['photo_url']=$_SESSION['photo_url'];
+		}
+		else
+		{
+			$response['response']['status']='Ok';
+			$response['response']['message']='User not logged in!!';
+		}
+		echo json_encode($response);
+		exit();
 	}
 }
 
