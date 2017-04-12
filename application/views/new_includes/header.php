@@ -28,13 +28,13 @@
             <li><a href="#contact">Contact Us</a></li>
             
 
-                <li ng-show="false">
+                <li ng-show="show_pic">
 
                 <img src="https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/16711731_1627462470614171_1993252523906147561_n.jpg?oh=906efa0ac3d23d15822b3d3251bf6f67&oe=5952D5D4" class="img-circle" style="border:1px solid #fff;border-radius: 120px; height: 67px; cursor: pointer;" title="Logout" onclick="logout();" >
 
                 </li>
             
-                <li ng-show="true"><a id="login_btn" ng-click="fb_login_fun();" style="cursor: pointer;">Login</a></li>
+                <li ng-show="login"><a id="login_btn" ng-click="fb_login_fun();" style="cursor: pointer;">Login</a></li>
             
         </ul>
     </nav>
