@@ -18,9 +18,9 @@
                 $dataUser['full_name']=$data['user_data']['name'];
                 $dataUser['f_name']=$data['user_data']['first_name'];
                 $dataUser['l_name']=$data['user_data']['last_name'];
-                $dataUser['email']=$data['user_data']['email'];
+                $dataUser['email']=@$data['user_data']['email'];
                 $dataUser['phone']='';
-                $dataUser['address']=$data['user_data']['hometown']['name'];
+                $dataUser['address']=@$data['user_data']['hometown']['name'];
                 $dataUser['created_on']=date('Y-m-d h:i:s');
                 $dataUser['modified_on']=date('Y-m-d h:i:s');
 

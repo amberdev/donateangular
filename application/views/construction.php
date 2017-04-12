@@ -54,7 +54,7 @@
         
         <div class="left-donate-box">
 
-        <textarea name="donate_details_n"  ng-model="user.donate_details" id="donate_details_n"  placeholder="Enter details of your kapda’s*" ng-required="true"></textarea>
+        <textarea name="donate_details_n"  ng-model="donate_details" id="donate_details_n"  placeholder="Enter details of your kapda’s*" ng-required="true"></textarea>
 
         <input type="text" name="address" ng-model="user.address" id="address" placeholder="Address*" class="name-input" >
         </div>

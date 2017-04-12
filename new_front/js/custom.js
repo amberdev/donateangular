@@ -35,7 +35,7 @@ app.controller('user_ctrl',function($scope,$http)
 {
 	$scope.valid_send = function(user) {
 
-       	$http.post(base_url+'welcome/save_user_donate_details', user).then(function(successCallback){ 
+       	$http.post(base_url+'welcome/save_user_donate_details', {user_detail:user,donate:$scope.donate_details}).then(function(successCallback){ 
 
        		console.log(successCallback.data.response.status);
        		if(successCallback.data.response.status=='Error')

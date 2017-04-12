@@ -24,7 +24,7 @@ class Welcome extends CI_Controller {
 	{
 		$postData = file_get_contents("php://input");
         $postArray=json_decode($postData,true);
-
+        print_r($postArray);die;
         if(@$postArray['phone']!='' && @$postArray['address']!='' && @$postArray['country']!='' && @$postArray['city']!='' && @$postArray['email']!='')
         {
 			if(preg_match('/^\d{10}$/',$postArray['phone'])) // phone number is valid
