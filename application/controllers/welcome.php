@@ -24,18 +24,19 @@ class Welcome extends CI_Controller {
 	{
 		$postData = file_get_contents("php://input");
         $postArray=json_decode($postData,true);
-        print_r($postArray);die;
-        if(@$postArray['phone']!='' && @$postArray['address']!='' && @$postArray['country']!='' && @$postArray['city']!='' && @$postArray['email']!='')
+        
+        if(@$postArray['user_detail']['phone']!='' && @$postArray['user_detail']['address']!='' && @$postArray['user_detail']['country']!='' && @$postArray['user_detail']['city']!='' && @$postArray['user_detail']['email']!='')
         {
-			if(preg_match('/^\d{10}$/',$postArray['phone'])) // phone number is valid
+			if(preg_match('/^\d{10}$/',$postArray['user_detail']['phone'])) // phone number is valid
 			{
-				$phoneNumber = '0' . $postArray['phone'];
+				$phoneNumber = '0' . $postArray['user_detail']['phone'];
 				 
-	        	$address=$postArray['address'];
-	        	$country=$postArray['country'];
+	        	$address=$postArray['user_detail']['address'];
+	        	$country=$postArray['user_detail']['country'];
 	        	$phone=$phoneNumber;
-	        	$email=$postArray['email'];
-	        	$data=array('address'=>$address,'country'=>$country,'phone'=>$phone,'email'=>$email);
+	        	$email=$postArray['user_detail']['email'];
+	        	$donate_details=$postArray['donate'];
+	        	$data=array('address'=>$address,'country'=>$country,'phone'=>$phone,'email'=>$email,'donate_details'=>$donate_details);
 	        	if(isset($_SESSION['user_login']))
 	        	{
 	        		$this->usermodel->save_details($data);
