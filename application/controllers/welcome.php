@@ -64,6 +64,8 @@ class Welcome extends CI_Controller {
 		$postData = file_get_contents("php://input");
         $postArray=json_decode($postData,true);
 
+        $response=$this->usermodel->save_user($postArray);
+        
         echo print_r($postArray);die;
 	}
 }
