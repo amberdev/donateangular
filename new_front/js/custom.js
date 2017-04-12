@@ -73,9 +73,7 @@ app.controller('user_ctrl',function($scope,$http)
     $scope.fb_login_fun=function()
     {
 
-    	$http.post(base_url+'welcome/login', {user_data:"{'name':'abc'}",friends:"{'name':'abc'}"}).then(function(successCallback){ 
-										console.log(successCallback);
-									}); 
+    	 
 
     	FB.init({ appId: '1467060270178993', xfbml: true, cookie: true, oauth: true });
 					FB.login(function(response) 
