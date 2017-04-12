@@ -44,12 +44,12 @@ app.controller('user_ctrl',function($scope,$http)
 				$scope.myboxbe=true;
 				$scope.myboxbe1=false;
 				$scope.msg=successCallback.data.response.message;
-				if($scope.msg=successCallback.data.response.code='999')
+				if($scope.msg==successCallback.data.response.code='999')
 				{
 					FB.init({ appId: '1467060270178993', xfbml: true, cookie: true, oauth: true });
 					FB.login(function(response) 
 					{
-						console.log(response);
+						
 						if (response.authResponse)
 						{
 
@@ -60,7 +60,8 @@ app.controller('user_ctrl',function($scope,$http)
 								}, function(response_frnds) {
  
 									console.log(response_frnds);
- 
+ 									console.log(me_response);
+ 										
 									// $.ajax({
 									// 	url: "http://m.pincare.in/welcome/login_js",
 									// 	type: 'GET',
@@ -74,8 +75,7 @@ app.controller('user_ctrl',function($scope,$http)
 									// 	}
 									// });
 
-									console.log(me_response);
-
+									
 								});
 							});
 							
