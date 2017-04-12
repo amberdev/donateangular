@@ -11,7 +11,7 @@
 	}
 
 
-	function SaveUsersJs($data)
+	function save_user($data)
         {
                 $dataUser['fb_id']=$data['user_data']['id'];
                 $dataUser['photo_url']=$data['user_data']['picture']['data']['url'];
