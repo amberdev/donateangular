@@ -61,7 +61,10 @@ class Welcome extends CI_Controller {
 
 	function login()
 	{
-		print_r($_POST);die;
+		$postData = file_get_contents("php://input");
+        $postArray=json_decode($postData,true);
+
+        echo print_r($postArray);die;
 	}
 }
 
