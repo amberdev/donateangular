@@ -54,9 +54,9 @@ app.controller('user_ctrl',function($scope,$http)
 						{
 
 							
-							//alert("REDIRECT FB.LOGIN 1");
+							alert("REDIRECT FB.LOGIN 1");
 							
-							window.location = "http://donateyourkapda.com/welcome/login";
+							// window.location = "http://donateyourkapda.com/welcome/login";
 							//$(".login_loading").show();
 							/*
 							console.log('Welcome!  Fetching your information.... ');
