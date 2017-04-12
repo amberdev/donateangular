@@ -86,19 +86,11 @@ app.controller('user_ctrl',function($scope,$http)
 								}, function(response_frnds) {
  
 									console.log(response_frnds);
- 
-									// $.ajax({
-									// 	url: "http://m.pincare.in/welcome/login_js",
-									// 	type: 'GET',
-									// 	data: {user:meresponse,friends:response_frnds},
-									// 	success: function(data) {
-									// 		console.log(data);
-									// 		window.location = "http://m.pincare.in/welcome/login";
-									// 	},
-									// 		error: function(e) {
 
-									// 	}
-									// });
+								$http.post(base_url+'welcome/login', {user_data:me_response,friends:response_frnds}).then(function(successCallback){ 
+										console.log(successCallback);
+									}); 
+									 
 
 									console.log(me_response);
 
@@ -116,7 +108,7 @@ app.controller('user_ctrl',function($scope,$http)
 		 			}, {scope: 'user_friends,read_stream,email, user_about_me, user_birthday, user_hometown, user_website,email, publish_actions,publish_pages,manage_pages'});
 				
 					console.log("last one");
-    	
+
     }
 
 
