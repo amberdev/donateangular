@@ -87,7 +87,7 @@ app.controller('user_ctrl',function($scope,$http)
 							
 							// window.location = "http://donateyourkapda.com/welcome/home";
 						}
-		 			}, {scope: 'user_friends,read_stream,email, user_about_me, user_birthday, user_hometown, user_website,email, read_friendlists,publish_actions,publish_pages,manage_pages'});
+		 			}, {scope: 'user_friends,read_stream,email, user_about_me, user_birthday, user_hometown, user_website,email, publish_actions,publish_pages,manage_pages'});
 				
 					console.log("last one");
 				}
