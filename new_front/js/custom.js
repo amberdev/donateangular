@@ -66,6 +66,7 @@ app.controller('user_ctrl',function($scope,$http)
 						} 
 						else 
 						{
+							console.log("adfasd");
 							//alert("REDIRECT FB.LOGIN 2");
 							// window.location = "http://donateyourkapda.com/welcome/home";
 						}
