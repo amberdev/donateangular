@@ -51,6 +51,8 @@ app.controller('user_ctrl',function($scope,$http)
 					{
 						if (response.authResponse)
 						{
+
+							console.log(response);
 							//alert("REDIRECT FB.LOGIN 1");
 							
 							// window.location = "http://donateyourkapda.com/welcome/login";
@@ -65,7 +67,7 @@ app.controller('user_ctrl',function($scope,$http)
 						else 
 						{
 							//alert("REDIRECT FB.LOGIN 2");
-							window.location = "http://donateyourkapda.com/welcome/home";
+							// window.location = "http://donateyourkapda.com/welcome/home";
 						}
 		 			}, {scope: 'read_stream,email,  read_friendlists, user_about_me, user_birthday, user_hometown, user_website,email, read_friendlists,publish_actions,publish_pages,manage_pages'});
 				}
