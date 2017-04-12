@@ -74,9 +74,9 @@ class Welcome extends CI_Controller {
 
         if(!empty($response))
         {
-        	$_SESSION['user_login']=$response['id'];
-        	$_SESSION['fb_id']=$response['fb_id'];
-        	$_SESSION['f_name']=$response['f_name'];
+        	$_SESSION['user_login']=$response[0]['id'];
+        	$_SESSION['fb_id']=$response[0]['fb_id'];
+        	$_SESSION['f_name']=$response[0]['f_name'];
         }
         print_r($_SESSION['curr_details']);die;
         if(isset($_SESSION['curr_details']))
