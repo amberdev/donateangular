@@ -30,16 +30,18 @@ class Welcome extends CI_Controller {
 			if(preg_match('/^\d{10}$/',$postArray['user_detail']['phone'])) // phone number is valid
 			{
 				$phoneNumber = '0' . $postArray['user_detail']['phone'];
-				 
+			 
 	        	$address=$postArray['user_detail']['address'];
 	        	$country=$postArray['user_detail']['country'];
+	        	$city=$postArray['user_detail']['city'];
 	        	$phone=$phoneNumber;
 	        	$email=$postArray['user_detail']['email'];
 	        	$donate_details=$postArray['donate'];
-	        	$data=array('address'=>$address,'country'=>$country,'phone'=>$phone,'email'=>$email,'donate_details'=>$donate_details);
+	        	$data=array('address'=>$address,'country'=>$country,'city'=>$city,'phone'=>$phone,'email'=>$email,'donate_details'=>$donate_details);
+	        	 
 	        	if(isset($_SESSION['user_login']))
 	        	{
-	        		$this->usermodel->save_details($data);
+	        		$this->usermodel->save_details($data,$_SESSION['user_login']);
 	        		$response['response']['status']='Ok';
 	        		$response['response']['message']='Your details has been saved';
 	        	}
@@ -72,20 +74,30 @@ class Welcome extends CI_Controller {
 		$postData = file_get_contents("php://input");
         $postArray=json_decode($postData,true);
 
-        $response=$this->usermodel->save_user($postArray);
+        $respn=$this->usermodel->save_user($postArray);
 
-        if(!empty($response))
+        if(!empty($respn))
         {
-        	$_SESSION['user_login']=$response[0]['id'];
-        	$_SESSION['fb_id']=$response[0]['fb_id'];
-        	$_SESSION['f_name']=$response[0]['f_name'];
+        	$_SESSION['user_login']=$respn[0]['id'];
+        	$_SESSION['fb_id']=$respn[0]['fb_id'];
+        	$_SESSION['f_name']=$respn[0]['f_name'];
+
+			if(isset($_SESSION['curr_details']))
+			{
+				$insert=$response=$this->usermodel->save_details($_SESSION['curr_details'],$_SESSION['user_login']);
+				if(isset($insert))
+				{
+					unset($_SESSION['curr_details']);	
+					$response['response']['status']='Ok';
+					$response['response']['message']='Thank-you for donate your clothes! Our volunteer will contact you.';
+				}
+			}
         }
-        print_r($_SESSION['curr_details']);die;
-        if(isset($_SESSION['curr_details']))
+        else
         {
-        	$this->usermodel->save_details($_SESSION['curr_details']);
-        	unset($_SESSION['curr_details']);
-        }
+        	$response['response']['status']='Error';
+        	$response['response']['message']='Somthing Went Wrong!! Please try again';
+        }  
 	}
 }
 
