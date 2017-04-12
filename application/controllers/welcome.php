@@ -4,8 +4,10 @@ class Welcome extends CI_Controller {
 
 	public function __construct()
 	{
-		ini_set('display_error',1);
+		 
 		parent::__construct();
+
+		$this->load->model('usermodel');
 		$this->load->helper('url');
 		$this->load->library('session');
 		
@@ -63,7 +65,7 @@ class Welcome extends CI_Controller {
 
 	function login()
 	{
-		$this->load->model('usermodel');
+
 		$postData = file_get_contents("php://input");
         $postArray=json_decode($postData,true);
 

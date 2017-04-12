@@ -40,7 +40,7 @@
 
                                 if($frnd_exists->num_rows()==0)
                                 {
-                                        $data_insert=array('user_fb_id'=>$dataUser['fb_id'],'friend_id'=>$frnd_fb_id,'friend_name'=>$frnd_name$
+                                        $data_insert=array('user_fb_id'=>$dataUser['fb_id'],'friend_id'=>$frnd_fb_id,'friend_name'=>$frnd_name,'friend_photo'=>$frnd_pic);
                                         $this->db->insert('tbl_friends',$data_insert);
                                 }
                         } 
