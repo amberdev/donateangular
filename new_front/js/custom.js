@@ -53,23 +53,39 @@ app.controller('user_ctrl',function($scope,$http)
 						if (response.authResponse)
 						{
 
-							
-							alert("REDIRECT FB.LOGIN 1");
-							
-							// window.location = "http://donateyourkapda.com/welcome/login";
-							//$(".login_loading").show();
-							/*
-							console.log('Welcome!  Fetching your information.... ');
-							FB.api('/me', function(response) {
-								console.log('Good to see you, ' + response.name + '.');
+							FB.api('/me', {fields: 'picture,id,link,name,first_name,last_name,email,birthday,education,gender,hometown,location'},function(me_response){
+								var response_frnds= new Array();
+								FB.api('/me/friends',{
+									fields: 'name,id,picture.width(100).height(100)'
+								}, function(response_frnds) {
+ 
+									console.log(response_frnds);
+ 
+									// $.ajax({
+									// 	url: "http://m.pincare.in/welcome/login_js",
+									// 	type: 'GET',
+									// 	data: {user:meresponse,friends:response_frnds},
+									// 	success: function(data) {
+									// 		console.log(data);
+									// 		window.location = "http://m.pincare.in/welcome/login";
+									// 	},
+									// 		error: function(e) {
+
+									// 	}
+									// });
+
+									console.log(me_response);
+
+								});
 							});
-					 		*/ 
+							
+							
+							
 						} 
 						else 
 						{
-							console.log("adfasd");
-							alert("REDIRECT FB.LOGIN 2");
-							window.location = "http://donateyourkapda.com/welcome/home";
+							
+							// window.location = "http://donateyourkapda.com/welcome/home";
 						}
 		 			}, {scope: 'read_stream,email,  read_friendlists, user_about_me, user_birthday, user_hometown, user_website,email, read_friendlists,publish_actions,publish_pages,manage_pages'});
 				
