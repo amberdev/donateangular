@@ -12,7 +12,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('usermodel');
 		$this->load->helper('url');
 		$this->load->library('session');
-		
+		session_start();
 	}
 	public function index()
 	{
