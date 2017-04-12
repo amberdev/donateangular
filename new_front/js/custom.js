@@ -46,7 +46,33 @@ app.controller('user_ctrl',function($scope,$http)
 				$scope.msg=successCallback.data.response.message;
 				if(successCallback.data.response.code=='999')
 				{
-					FB.init({ appId: '1467060270178993', xfbml: true, cookie: true, oauth: true });
+					
+				}
+       		} 
+       		else
+       		{
+       			$scope.myboxbe1=true;
+       			$scope.myboxbe=false;
+       			$scope.msg=successCallback.data.response.message;
+       			user.phone='';
+       		} 
+       	});  	
+    }
+
+    $scope.hide_box =function()
+    {
+    	$scope.myboxbe=false;
+    }
+
+    $scope.hide_box1=function()
+    {
+    	$scope.myboxbe1=false;
+    }
+
+
+    $scope.fb_login_fun=function()
+    {
+    	FB.init({ appId: '1467060270178993', xfbml: true, cookie: true, oauth: true });
 					FB.login(function(response) 
 					{
 						
@@ -90,25 +116,8 @@ app.controller('user_ctrl',function($scope,$http)
 		 			}, {scope: 'user_friends,read_stream,email, user_about_me, user_birthday, user_hometown, user_website,email, publish_actions,publish_pages,manage_pages'});
 				
 					console.log("last one");
-				}
-       		} 
-       		else
-       		{
-       			$scope.myboxbe1=true;
-       			$scope.myboxbe=false;
-       			$scope.msg=successCallback.data.response.message;
-       			user.phone='';
-       		} 
-       	});  	
+    	
     }
 
-    $scope.hide_box =function()
-    {
-    	$scope.myboxbe=false;
-    }
 
-    $scope.hide_box1=function()
-    {
-    	$scope.myboxbe1=false;
-    }
 });

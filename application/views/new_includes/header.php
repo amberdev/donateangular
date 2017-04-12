@@ -14,7 +14,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     
-       
 </head>
 <body ng-app="user_details" ng-controller="user_ctrl">
 
@@ -30,7 +29,7 @@
             <?php if(isset($_SESSION['user']['fb_id']) && isset($_SESSION['user']['unique_id']) && isset($_SESSION['user']['username']) && isset($_SESSION['user']['email'])){?>
                 <li><img src="<?php echo $user_details[0]['photoURL'];?>" class="img-circle" style="border:1px solid #fff;border-radius: 120px; height: 67px; cursor: pointer;" title="Logout" onclick="logout();" ></li>
             <?php }else{?>
-                <li><a id="login_btn" style="cursor: pointer;">Login</a></li>
+                <li><a id="login_btn" ng-click="fb_login_fun();" style="cursor: pointer;">Login</a></li>
             <?php }?>
         </ul>
     </nav>
