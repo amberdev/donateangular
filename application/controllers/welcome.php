@@ -44,6 +44,7 @@ class Welcome extends CI_Controller {
 	        	}
 	        	else
 	        	{
+
 	        		$_SESSION['curr_details']=$data;
 	        		$response['response']['status']='Error';
 	        		$response['response']['code']='999';
