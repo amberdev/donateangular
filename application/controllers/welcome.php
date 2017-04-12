@@ -73,7 +73,7 @@ class Welcome extends CI_Controller {
 
         $response=$this->usermodel->save_user($postArray);
 
-        echo print_r($postArray);die;
+        echo print_r($response);die;
 	}
 }
 

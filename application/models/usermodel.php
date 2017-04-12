@@ -62,8 +62,6 @@
                         $q=$this->db->get('tbl_users');
                         return $q->result_array(); 
                 }
-
-
         }
 		
 	}
